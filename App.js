@@ -11,17 +11,24 @@ export default class App extends React.Component {
       BallPosition: 200
     }
     this.handleScreenTapped = this.handleScreenTapped.bind(this);
+    this.checkDeath = this.checkDeath.bind(this);
     setInterval(() => (
       this.setState(previousState => (
-        {BallPosition: (this.state.BallPosition - 5) }
+        {BallPosition: (this.state.BallPosition - 7) }
       ))
-    ), 10);
+      
+    ), 1);
   }
 
+  checkDeath(){
+    if(this.state.BallPosition < 0){
+      console.log('dead')
+    }
 
+  }
   handleScreenTapped(){
     console.log(this.state.BallPosition);
-    this.setState({BallPosition: (this.state.BallPosition + 100)})
+    this.setState({BallPosition: (this.state.BallPosition + 150)})
   }
 
   render() {
