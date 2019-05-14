@@ -4,7 +4,8 @@ import Ball from './src/components/Ball';
 import Controls from './src/components/Controls';
 import Welcome from './src/components/Welcome';
 import Menu from './src/components/Menu';
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
+
 
 
 

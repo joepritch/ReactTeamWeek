@@ -4,9 +4,15 @@ import background from '../../assets/birds.gif'
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
 
 export default class Welcome extends React.Component {
-      _onPress() {
-      Alert.alert('on Press!');
-     }
+      static navigationOptions = {
+        title: 'Flappy Bird',
+          headerTitleStyle: {
+            color: 'white'
+          },
+          headerStyle: {
+            backgroundColor: '#2F95D6',
+          }
+        }
       render() {
 
         return (
@@ -17,7 +23,7 @@ export default class Welcome extends React.Component {
             < /View>
               <View style={styles.buttonContainer}>
               <Button
-                title="Go to Details"
+                title="START"
                 onPress={() => {
                   this.props.navigation.dispatch(StackActions.reset({
                     index: 0,
@@ -43,7 +49,7 @@ export default class Welcome extends React.Component {
         position: 'absolute',
         justifyContent: 'center',
         alignSelf: 'center',
-        backgroundColor: 'rgba(135,206,250, 0.8)',
+        backgroundColor: 'rgba(135,206,250, 0.5)',
         borderRadius: 10,
         padding: 10,
         shadowColor: '#000000',

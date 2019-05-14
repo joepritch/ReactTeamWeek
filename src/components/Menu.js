@@ -1,12 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
 import background from '../../assets/birds.gif'
-
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
 
 export default class Menu extends React.Component {
       _onPress() {
       Alert.alert('on Press!');
      }
+     static navigationOptions = {
+       title: 'Menu',
+         headerTitleStyle: {
+           color: 'white'
+         },
+         headerStyle: {
+           backgroundColor: '#2F95D6',
+         }
+       }
       render() {
 
         return (
@@ -16,7 +25,17 @@ export default class Menu extends React.Component {
               </ImageBackground>
             < /View>
               <View style={styles.buttonContainer}>
-                <Button onPress={this._onPress} title="RESTART" color="#FFFFFF" />
+                <Button
+                  title="RESTART"
+                  onPress={() => {
+                    this.props.navigation.dispatch(StackActions.reset({
+                      index: 0,
+                      actions: [
+                        NavigationActions.navigate({ routeName: 'Welcome' })
+                      ],
+                    }))
+                  }}
+                />
                 <Button onPress={this._onPress} title="ADD TO LEADERBOARD" color="#FFFFFF" />
             </View>
           </ View>
@@ -33,7 +52,7 @@ export default class Menu extends React.Component {
     buttonContainer: {
       position: 'absolute',
       alignSelf: 'center',
-      backgroundColor: 'rgba(135,206,250, 0.9)',
+      backgroundColor: 'rgba(255, 69, 0, 0.9)',
       borderRadius: 10,
       padding: 10,
       shadowColor: '#000000',
