@@ -9,10 +9,14 @@ export default class Welcome extends React.Component {
       render() {
 
         return (
-          <View>
-            // <ImageBackground source={background} style={{width: '100%', height: '100%'}}>
-            // </ImageBackground>
-            <Button onPress={this._onPress} title="Hello" color="#FFFFFF" accessibilityLabel="Tap on Me"/>
+          <View style={styles.container}>
+            <View style={styles.background}>
+              <ImageBackground source={background} style={{width: '100%', height: '100%'}}>
+              </ImageBackground>
+            < /View>
+              <View style={styles.buttonContainer}>
+              <Button onPress={this._onPress} title="Start" color="#FFFFFF" accessibilityLabel="Tap on Me"/>
+            </View>
           </ View>
         );
       }
@@ -22,10 +26,13 @@ export default class Welcome extends React.Component {
       container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignContent: 'center',
         backgroundColor: '#FFFFFF'
       },
       buttonContainer: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignSelf: 'center',
         backgroundColor: '#2E9298',
         borderRadius: 10,
         padding: 10,
@@ -36,5 +43,8 @@ export default class Welcome extends React.Component {
         },
         shadowRadius: 10,
         shadowOpacity: 0.25
+      },
+      background: {
+        position: 'relative'
       }
     })
