@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Ball from './src/components/Ball';
 import Controls from './src/components/Controls';
+import Welcome from './src/components/Welcome';
+
 
 export default class App extends React.Component {
 
@@ -27,8 +29,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Ball BallPosition={this.state.BallPosition}/>
-        <Controls onScreenTapped={this.handleScreenTapped}/>
+        <Welcome />
+
       </View>
     );
   }
@@ -38,6 +40,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height:'100%',
-    backgroundColor:'green'
+    color: 'white',
   },
 });
