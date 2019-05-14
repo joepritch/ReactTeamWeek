@@ -1,17 +1,18 @@
 import React from 'react';
 import HighScore from './HighScore';
 import PropTypes from 'prop-types';
+import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
 
 function HighScoreList(props){
   return (
 
-    <div>
-      <hr/>
-      {props.highScoreList.map((highScore, index) =>
+    <View>
+
+      {this.screenProps.highScoreList.map((highScore, index) =>
         <HighScore name={highScore.name}
           key={index}/>
       )}
-    </div>
+    </View>
   )
 }
 

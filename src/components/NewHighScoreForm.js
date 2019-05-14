@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from "prop-types";
+import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
 
 function NewHighScoreForm(){
 
@@ -13,7 +14,7 @@ function NewHighScoreForm(){
     }
 
   return (
-    <div>
+    <View>
       <form onSubmit={handleNewHighScoreFormSubmission}>
         <input
           type='text'
@@ -22,11 +23,11 @@ function NewHighScoreForm(){
           ref={(input) => {_name = input;}}/>
         <button type='submit'>Submit High Score</button>
       </form>
-    </div>
+    </View>
   )
 }
 
-NewTicketForm.propTypes = {
+NewHighScoreForm.propTypes = {
   onNewHighScoreCreation: PropTypes.func
 };
 

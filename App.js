@@ -5,8 +5,7 @@ import Controls from './src/components/Controls';
 
 import NewHighScoreForm from './src/components/NewHighScoreForm';
 import HighScoreList from './src/components/HighScoreList';
-import { createStore } from 'redux';
-import ticketListReducer from './reducers/ticket-list-reducer';
+
 
 import Welcome from './src/components/Welcome';
 import Menu from './src/components/Menu';
@@ -56,8 +55,9 @@ class App extends React.Component {
         <Ball BallPosition={this.state.BallPosition}/>
         <Controls onScreenTapped={this.handleScreenTapped}/>
         // need to add Routes
-        <render={()=><NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>} />
-        <render={()=><HighScoreList highScoreList={this.state.masterHighScoreList} />} />
+        <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
+
+        <HighScoreList screenProps={{highScoreList: this.state.masterHighScoreList}} />
       </View>
     );
   }
@@ -77,9 +77,12 @@ const AppNavigator = createStackNavigator({
   },
   Menu: {
     screen: Menu,
+  },
+  HighScore: {
+    screen: HighScoreList,
   }
 }, {
-    initialRouteName: 'Welcome',
+    initialRouteName: 'HighScore',
 });
 
 
