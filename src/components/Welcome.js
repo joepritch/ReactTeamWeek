@@ -10,7 +10,7 @@ export default class Welcome extends React.Component {
             color: 'white'
           },
           headerStyle: {
-            backgroundColor: '#2F95D6',
+            backgroundColor: 'rgba(135,206,250, 0.7)',
           }
         }
       render() {
@@ -22,7 +22,7 @@ export default class Welcome extends React.Component {
               </ImageBackground>
             < /View>
               <View style={styles.buttonContainer}>
-              <Button
+              <Button color="#FFFFFF"
                 title="START"
                 onPress={() => {
                   this.props.navigation.dispatch(StackActions.reset({

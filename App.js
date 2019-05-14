@@ -35,6 +35,8 @@ class App extends React.Component {
       <View style={styles.container}>
         <Menu />
         <Welcome />
+        <Ball BallPosition={this.state.BallPosition}/>
+        <Controls onScreenTapped={this.handleScreenTapped}/>
       </View>
     );
   }
@@ -54,7 +56,7 @@ const AppNavigator = createStackNavigator({
   },
   Menu: {
     screen: Menu,
-  },
+  }
 }, {
     initialRouteName: 'Welcome',
 });
