@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
-import background from '../../assets/background.jpg'
+import background from '../../assets/birds.gif'
 
 export default class Welcome extends React.Component {
       _onPress() {
@@ -27,13 +27,12 @@ export default class Welcome extends React.Component {
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
-        backgroundColor: '#FFFFFF'
       },
       buttonContainer: {
         position: 'absolute',
         justifyContent: 'center',
         alignSelf: 'center',
-        backgroundColor: '#2E9298',
+        backgroundColor: 'rgba(135,206,250, 0.8)',
         borderRadius: 10,
         padding: 10,
         shadowColor: '#000000',
