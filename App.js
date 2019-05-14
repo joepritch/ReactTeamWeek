@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Ball from './src/components/Ball';
 import Controls from './src/components/Controls';
+import Game from './Game';
+import FlappyProvider from './contexts/FlappyProvider';
 
 export default class App extends React.Component {
 
@@ -26,10 +28,16 @@ export default class App extends React.Component {
 
   render() {
     return (
+      // <View style={styles.container}>
+      //   <Ball BallPosition={this.state.BallPosition}/>
+      //   <Controls onScreenTapped={this.handleScreenTapped}/>
+      // </View>
       <View style={styles.container}>
-        <Ball BallPosition={this.state.BallPosition}/>
-        <Controls onScreenTapped={this.handleScreenTapped}/>
+        <FlappyProvider>
+          <Game />
+        </FlappyProvider>
       </View>
+
     );
   }
 }
