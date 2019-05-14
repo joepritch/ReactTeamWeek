@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
 import background from '../../assets/birds.gif'
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
 
 export default class Welcome extends React.Component {
       _onPress() {
@@ -15,7 +16,17 @@ export default class Welcome extends React.Component {
               </ImageBackground>
             < /View>
               <View style={styles.buttonContainer}>
-              <Button onPress={this._onPress} title="Start" color="#FFFFFF" accessibilityLabel="Tap on Me"/>
+              <Button
+                title="Go to Details"
+                onPress={() => {
+                  this.props.navigation.dispatch(StackActions.reset({
+                    index: 0,
+                    actions: [
+                      NavigationActions.navigate({ routeName: 'Menu' })
+                    ],
+                  }))
+                }}
+              />
             </View>
           </ View>
         );

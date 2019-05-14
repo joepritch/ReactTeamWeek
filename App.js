@@ -3,9 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import Ball from './src/components/Ball';
 import Controls from './src/components/Controls';
 import Welcome from './src/components/Welcome';
+import Menu from './src/components/Menu';
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
-export default class App extends React.Component {
+
+class App extends React.Component {
 
   constructor(props){
     super(props);
@@ -29,8 +32,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Menu />
         <Welcome />
-
       </View>
     );
   }
@@ -43,3 +46,17 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
+
+const AppNavigator = createStackNavigator({
+  Welcome: {
+    screen: Welcome,
+  },
+  Menu: {
+    screen: Menu,
+  },
+}, {
+    initialRouteName: 'Welcome',
+});
+
+
+export default createAppContainer(AppNavigator);
