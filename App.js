@@ -2,12 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Ball from './src/components/Ball';
 import Controls from './src/components/Controls';
+
 import NewHighScoreForm from './src/components/NewHighScoreForm';
 import HighScoreList from './src/components/HighScoreList';
 import { createStore } from 'redux';
 import ticketListReducer from './reducers/ticket-list-reducer';
 
-export default class App extends React.Component {
+import Welcome from './src/components/Welcome';
+import Menu from './src/components/Menu';
+import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
+
+
+
+
+
+class App extends React.Component {
 
   constructor(props){
     super(props);
@@ -42,6 +51,8 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Menu />
+        <Welcome />
         <Ball BallPosition={this.state.BallPosition}/>
         <Controls onScreenTapped={this.handleScreenTapped}/>
         // need to add Routes
@@ -56,6 +67,20 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height:'100%',
-    backgroundColor:'green'
+    color: 'white',
   },
 });
+
+const AppNavigator = createStackNavigator({
+  Welcome: {
+    screen: Welcome,
+  },
+  Menu: {
+    screen: Menu,
+  }
+}, {
+    initialRouteName: 'Welcome',
+});
+
+
+export default createAppContainer(AppNavigator);
