@@ -28,8 +28,8 @@ export default class FlappyProvider extends Component {
             y: 0,
           },
           dimension: {
-            width: 7,
-            height: 6,
+            width: 6,
+            height: 5,
           },
           rigid: true,
           static: false,
