@@ -3,8 +3,15 @@ import { StyleSheet, Text, View, Animated, Easing, Dimensions } from 'react-nati
 
 export default class Pipe extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      xPOS: 0
+    }
+  }
+
   componentDidMount(){
-    setInterval(this._measure, 500)
+    setInterval(this._measure, 1)
   }
 
   _measure = () => {
@@ -17,7 +24,7 @@ export default class Pipe extends React.Component {
         width: width,
         height: height
       }
-      console.log(location, 'pipe')
+      this.setState({xPOS: location.fx})
     })
   }
 
