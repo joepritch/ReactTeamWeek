@@ -17,7 +17,9 @@ export default class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      masterHighScoreList: []
+      masterHighScoreList: [
+        {name: 'john'}
+      ]
     }
     this.handleAddingNewHighScoreToList = this.handleAddingNewHighScoreToList.bind(this);
   }
@@ -34,7 +36,8 @@ export default class App extends React.Component {
       <View style={styles.container}>
 
         <Game/>
-
+        <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
+        <HighScoreList highScoreList = {this.state.masterHighScoreList}/>
       </View>
     );
   }
@@ -62,6 +65,3 @@ const AppNavigator = createStackNavigator({
 }, {
     initialRouteName: 'HighScore',
 });
-
-
-// export default createAppContainer(AppNavigator);

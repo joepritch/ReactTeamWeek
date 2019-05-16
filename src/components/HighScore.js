@@ -1,21 +1,20 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button, Alert, H3 } from 'react-native';
 
 
-function HighScore(props){
-  return (
-
-    <View>
+export default class HighScore extends React.Component {
+  render(props) {
+    return (
       <View>
-        <h3>{props.name}</h3>
+        <View>
+          <H3>{props.name}</H3>
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
 HighScore.propTypes = {
   name: PropTypes.string
 };
-
-export default HighScore;
