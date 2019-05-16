@@ -1,34 +1,42 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button, Alert, TextInput, FormInput } from 'react-native';
 
-function NewHighScoreForm(){
 
-  let _name = null;
 
-  function handleNewHighScoreFormSubmission(event) {
-      event.preventDefault();
-      props.onNewHighScoreCreation({name: _name.value});
-      _name.value = '';
 
-    }
 
-  return (
-    <View>
-      <form onSubmit={handleNewHighScoreFormSubmission}>
-        <input
-          type='text'
+export default class NewHighScoreForm extends React.Component {
+
+  _name = null;
+
+  handleNewHighScoreFormSubmission(event) {
+    event.preventDefault();
+    this.props.onNewHighScoreCreation({name: _name.value});
+    _name.value = '';
+
+  }
+
+
+
+
+
+
+  render(props) {
+    return (
+      <View>
+        <TextInput
           id='name'
-          placeholder='Your Name'
+          placeholder='Enter Your Name'
           ref={(input) => {_name = input;}}/>
-        <button type='submit'>Submit High Score</button>
-      </form>
-    </View>
-  )
+        <Button color="#333333"
+          title= "ENTER"
+          onPress={this.handleNewHighScoreFormSubmission} />
+      </View>
+    )
+  }
 }
 
 NewHighScoreForm.propTypes = {
   onNewHighScoreCreation: PropTypes.func
 };
-
-export default NewHighScoreForm;
