@@ -18,10 +18,6 @@ export default class NewHighScoreForm extends React.Component {
   }
 
 
-
-
-
-
   render(props) {
     return (
       <View>

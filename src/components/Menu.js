@@ -42,8 +42,32 @@ export default class Menu extends React.Component {
                 />
               </View>
 
-              <View style={styles.button}>
-                <Button onPress={this._onPress} title="LEADER BOARD" color="#FFFFFF" />
+              <View style={styles.button} >
+                <Button color="#FFFFFF"
+                  title="LEADER BOARD"
+                  onPress={() => {
+                    this.props.navigation.dispatch(StackActions.reset({
+                      index: 0,
+                      actions: [
+                        NavigationActions.navigate({ routeName: 'HighScoreList' })
+                      ],
+                    }))
+                  }}
+                />
+              </View>
+
+              <View style={styles.button} >
+                <Button color="#FFFFFF"
+                  title="Enter"
+                  onPress={() => {
+                    this.props.navigation.dispatch(StackActions.reset({
+                      index: 0,
+                      actions: [
+                        NavigationActions.navigate({ routeName: 'HighScoreForm' })
+                      ],
+                    }))
+                  }}
+                />
               </View>
 
             </View>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Animated, Easing, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Animated,ImageBackground, Easing, Dimensions } from 'react-native';
+import background from '../../assets/background.jpg'
 import Ball from './Ball';
 import Controls from './Controls';
 import Pipe from './Pipe';
@@ -69,6 +70,10 @@ export default class Game extends React.Component{
   render(){
     return(
       <View style={styles.container}>
+      <View style={styles.background}>
+        <ImageBackground source={background} style={{width: '100%', height: '100%'}}>
+        </ImageBackground>
+      < /View>
         <Score Score={this.state.Score}/>
         <Ball BallPosition={this.state.BallPosition}/>
         <Controls onScreenTapped={this.handleScreenTapped}/>
