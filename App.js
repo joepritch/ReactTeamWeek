@@ -1,12 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Ball from './src/components/Ball';
-import Controls from './src/components/Controls';
-
 import NewHighScoreForm from './src/components/NewHighScoreForm';
 import HighScoreList from './src/components/HighScoreList';
 
-
+import Game from './src/components/Game';
 import Welcome from './src/components/Welcome';
 import Menu from './src/components/Menu';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
@@ -23,19 +20,11 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      BallPosition: 200,
-      masterHighScoreList: []
+      masterHighScoreList: [
+        {name: 'john'}
+      ]
     }
-
     this.handleAddingNewHighScoreToList = this.handleAddingNewHighScoreToList.bind(this);
-
-    this.handleScreenTapped = this.handleScreenTapped.bind(this);
-
-    setInterval(() => (
-      this.setState(previousState => (
-        {BallPosition: (this.state.BallPosition - 5) }
-      ))
-    ), 10);
   }
 
   handleAddingNewHighScoreToList(newHighScore) {
@@ -45,11 +34,6 @@ class App extends React.Component {
   }
 
 
-  handleScreenTapped(){
-    console.log(this.state.BallPosition);
-    this.setState({BallPosition: (this.state.BallPosition + 100)})
-  }
-
   render() {
     return (
       // <View style={styles.container}>
@@ -57,14 +41,12 @@ class App extends React.Component {
       //   <Controls onScreenTapped={this.handleScreenTapped}/>
       // </View>
       <View style={styles.container}>
-        <Menu />
-        <Welcome />
-        <Ball BallPosition={this.state.BallPosition}/>
-        <Controls onScreenTapped={this.handleScreenTapped}/>
-        // need to add Routes
-        <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
 
-        <HighScoreList screenProps={{highScoreList: this.state.masterHighScoreList}} />
+        <Welcome/>
+        <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
+        <HighScoreList highScoreList = {this.state.masterHighScoreList}/>
+
+        
         <FlappyProvider>
           <Game />
         </FlappyProvider>
@@ -79,6 +61,7 @@ class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height:'100%',
+    width: '100%',
     color: 'white',
   },
 });
@@ -94,8 +77,7 @@ const AppNavigator = createStackNavigator({
     screen: HighScoreList,
   }
 }, {
-    initialRouteName: 'HighScore',
+    initialRouteName: 'Welcome',
 });
-
 
 export default createAppContainer(AppNavigator);

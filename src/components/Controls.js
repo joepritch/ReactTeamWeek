@@ -4,9 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 export default class Controls extends React.Component {
   render(props) {
     return (
-      <View>
-        <TouchableOpacity style={styles.container} onPress={this.props.onScreenTapped}/>
-      </View>
+      <TouchableOpacity style={styles.container} onPress={this.props.onScreenTapped}/>
     );
   }
 }
