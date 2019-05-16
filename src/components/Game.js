@@ -7,6 +7,15 @@ import Pipe from './Pipe';
 import Score from './Score';
 
 export default class Game extends React.Component{
+  static navigationOptions = {
+    title: 'Game',
+      headerTitleStyle: {
+        color: 'white'
+      },
+      headerStyle: {
+        backgroundColor: '#4EC0CB',
+      }
+    }
 
   constructor(props){
     super(props);
@@ -70,11 +79,8 @@ export default class Game extends React.Component{
   render(){
     return(
       <View style={styles.container}>
-      <View style={styles.background}>
-        <ImageBackground source={background} style={{width: '100%', height: '100%'}}>
-        </ImageBackground>
-      < /View>
-        <Score Score={this.state.Score}/>
+
+        <Score style={styles.score} Score={this.state.Score}/>
         <Ball BallPosition={this.state.BallPosition}/>
         <Controls onScreenTapped={this.handleScreenTapped}/>
         <Pipe pipeItUp={this.pipeItUp} PipePosition={this.state.PipePosition} bottomValue={this.state.bottomValue} />
@@ -88,5 +94,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-  },
+    backgroundColor: '#4EC0CB',
+    color: 'red'
+  }
 });

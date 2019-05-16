@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
     position:'absolute',
     height: '35%',
     width: '100%',
-    backgroundColor: 'white',
+    backgroundColor: '#4EC0CB'
   },
 });

@@ -14,9 +14,10 @@ const styles = StyleSheet.create({
   ball: {
     width: 50,
     height: 50,
-    backgroundColor: 'red',
+    backgroundColor: 'gold',
     position:'absolute',
     borderRadius: 100,
+    left: 50,
     zIndex: 100
   },
 });

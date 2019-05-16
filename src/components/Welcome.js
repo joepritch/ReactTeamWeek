@@ -36,7 +36,7 @@ class FadeInView extends React.Component {
 
 export default class Welcome extends React.Component {
       static navigationOptions = {
-        title: 'Flappy Bird',
+        title: '',
           headerTitleStyle: {
             color: 'white'
           },

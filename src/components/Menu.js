@@ -28,6 +28,20 @@ export default class Menu extends React.Component {
 
             <View style={styles.buttonContainer}>
 
+            <View style={styles.button} >
+              <Button color="#FFFFFF"
+                title="START GAME"
+                onPress={() => {
+                  this.props.navigation.dispatch(StackActions.reset({
+                    index: 0,
+                    actions: [
+                      NavigationActions.navigate({ routeName: 'Game' })
+                    ],
+                  }))
+                }}
+              />
+            </View>
+
               <View style={styles.button} >
                 <Button color="#FFFFFF"
                   title="RESTART"
