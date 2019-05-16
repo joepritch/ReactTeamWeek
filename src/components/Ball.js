@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Animated, Easing } from 'react-native';
 export default class Ball extends React.Component {
   render(props) {
     return (
-      <Animated.View style={[styles.ball, {bottom: this.props.BallPosition}]}>
+      <Animated.View style={[styles.ball, {transform:[{translateY: this.props.BallPosition}]}]}>
       </Animated.View>
     );
   }

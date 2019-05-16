@@ -5,7 +5,7 @@ export default class Pipe extends React.Component {
 
   render(props) {
     return (
-      <Animated.View style={[styles.container, {left: this.props.PipePosition}]}>
+      <Animated.View style={[styles.container, {transform: [{translateX: this.props.PipePosition}]}]}>
         <View style={styles.pipe}>
           <View style={[styles.block, {bottom: this.props.bottomValue}]}/>
         </View>
