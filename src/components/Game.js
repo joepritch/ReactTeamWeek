@@ -18,7 +18,6 @@ export default class Game extends React.Component{
   this.handleScreenTapped = this.handleScreenTapped.bind(this);
   this.pipeItUp = this.pipeItUp.bind(this)
   this.update = this.update.bind(this)
-  this.log = this.log.bind(this)
   }
 
   floor = (Dimensions.get('window').height)-50;
@@ -26,14 +25,8 @@ export default class Game extends React.Component{
   width = Dimensions.get('window').width;
 
   componentDidMount() {
-    console.log(this.floor, this.width);
     this.pipeItUp();
     setInterval(this.update, 1750)
-    setInterval(this.log, 500)
-  }
-
-  log(){
-    console.log(this.state);
   }
 
   update(){
@@ -44,7 +37,6 @@ export default class Game extends React.Component{
   }
 
   pipeItUp() {
-    console.log('pipe');
     Animated.loop(
       Animated.timing(
         this.state.PipePosition,

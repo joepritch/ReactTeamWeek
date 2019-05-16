@@ -3,9 +3,27 @@ import { StyleSheet, Text, View, Animated, Easing, Dimensions } from 'react-nati
 
 export default class Pipe extends React.Component {
 
+  componentDidMount(){
+    setInterval(this._measure, 500)
+  }
+
+  _measure = () => {
+    this._pipe._component.measure((width, height, px, py, fx, fy) => {
+      const location = {
+        fx: fx,
+        fy: fy,
+        px: px,
+        py: py,
+        width: width,
+        height: height
+      }
+      console.log(location, 'pipe')
+    })
+  }
+
   render(props) {
     return (
-      <Animated.View style={[styles.container, {transform: [{translateX: this.props.PipePosition}]}]}>
+      <Animated.View ref={(pipe) => {this._pipe = pipe}} style={[styles.container, {transform: [{translateX: this.props.PipePosition}]}]}>
         <View style={styles.pipe}>
           <View style={[styles.block, {bottom: this.props.bottomValue}]}/>
         </View>
