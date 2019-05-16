@@ -10,6 +10,9 @@ import HighScoreList from './src/components/HighScoreList';
 import Welcome from './src/components/Welcome';
 import Menu from './src/components/Menu';
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
+import Game from './Game';
+import FlappyProvider from './contexts/FlappyProvider';
+
 
 
 
@@ -49,6 +52,10 @@ class App extends React.Component {
 
   render() {
     return (
+      // <View style={styles.container}>
+      //   <Ball BallPosition={this.state.BallPosition}/>
+      //   <Controls onScreenTapped={this.handleScreenTapped}/>
+      // </View>
       <View style={styles.container}>
         <Menu />
         <Welcome />
@@ -58,7 +65,12 @@ class App extends React.Component {
         <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
 
         <HighScoreList screenProps={{highScoreList: this.state.masterHighScoreList}} />
+        <FlappyProvider>
+          <Game />
+        </FlappyProvider>
+
       </View>
+
     );
   }
 }

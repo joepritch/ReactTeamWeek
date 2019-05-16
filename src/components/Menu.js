@@ -13,19 +13,22 @@ export default class Menu extends React.Component {
            color: 'white'
          },
          headerStyle: {
-           backgroundColor: 'rgba(135,206,250, 0.5)',
+           backgroundColor: '#4EC0CB',
          }
        }
       render() {
 
         return (
-          <View style={styles.container}>
+          <View>
+
             <View style={styles.background}>
               <ImageBackground source={background} style={{width: '100%', height: '100%'}}>
               </ImageBackground>
             < /View>
+
             <View style={styles.buttonContainer}>
-              <View>
+
+              <View style={styles.button} >
                 <Button color="#FFFFFF"
                   title="RESTART"
                   onPress={() => {
@@ -38,24 +41,29 @@ export default class Menu extends React.Component {
                   }}
                 />
               </View>
-              <View>
+
+              <View style={styles.button}>
                 <Button onPress={this._onPress} title="LEADER BOARD" color="#FFFFFF" />
               </View>
+
             </View>
-          </ View>
+
+          </View>
         );
       }
     }
 
   const styles = StyleSheet.create({
-    container: {
-      justifyContent: 'center'
-    },
     buttonContainer: {
       position: 'absolute',
-      justifyContent: 'center',
+      flexDirection: 'column',
       alignSelf: 'center',
-      backgroundColor: 'rgba(255, 69, 0, 0.5)',
+      justifyContent: 'center',
+      height: '100%'
+    },
+    button: {
+      backgroundColor: 'rgba(255, 69, 0, 0.8)',
+      marginBottom: 10,
       borderRadius: 10,
       padding: 10,
       shadowColor: '#000000',
@@ -65,8 +73,5 @@ export default class Menu extends React.Component {
       },
       shadowRadius: 10,
       shadowOpacity: 0.25
-    },
-    background: {
-      position: 'relative'
     }
   })

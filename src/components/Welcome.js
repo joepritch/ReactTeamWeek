@@ -41,7 +41,7 @@ export default class Welcome extends React.Component {
             color: 'white'
           },
           headerStyle: {
-            backgroundColor: 'rgba(135,206,250, 0.7)',
+            backgroundColor: '#4EC0CB',
           }
         }
       render() {
@@ -78,7 +78,9 @@ export default class Welcome extends React.Component {
         flexDirection: 'column',
         alignSelf: 'center',
         justifyContent: 'center',
-        height: '100%'
+        height: '100%',
+        width: '40%'
+
       },
       button: {
         backgroundColor: 'rgba(197, 239, 247, 0.8)',
