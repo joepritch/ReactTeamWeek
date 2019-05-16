@@ -12,7 +12,7 @@ import { createAppContainer, createStackNavigator, StackActions, NavigationActio
 
 
 
-export default class App extends React.Component {
+class App extends React.Component {
 
   constructor(props){
     super(props);
@@ -35,7 +35,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
 
-        <Game/>
+        <Welcome/>
         <NewHighScoreForm onNewHighScoreCreation={this.handleAddingNewHighScoreToList}/>
         <HighScoreList highScoreList = {this.state.masterHighScoreList}/>
       </View>
@@ -63,5 +63,7 @@ const AppNavigator = createStackNavigator({
     screen: HighScoreList,
   }
 }, {
-    initialRouteName: 'HighScore',
+    initialRouteName: 'Welcome',
 });
+
+export default createAppContainer(AppNavigator);

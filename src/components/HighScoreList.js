@@ -8,7 +8,7 @@ export default class HighScoreList extends React.Component {
   render(props) {
     return (
       <View>
-        {props.highScoreList.map((highScore, index) =>
+        {this.props.highScoreList.map((highScore, index) =>
           <HighScore name={highScore.name}
             key={index}/>
         )}

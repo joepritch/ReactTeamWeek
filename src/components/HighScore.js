@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { StyleSheet, Text, View, ImageBackground, Button, Alert, H3 } from 'react-native';
+import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
 
 
 export default class HighScore extends React.Component {
@@ -8,13 +8,9 @@ export default class HighScore extends React.Component {
     return (
       <View>
         <View>
-          <H3>{props.name}</H3>
+          <Text>{this.props.name}</Text>
         </View>
       </View>
     )
   }
 }
-
-HighScore.propTypes = {
-  name: PropTypes.string
-};

@@ -10,9 +10,9 @@ export default class NewHighScoreForm extends React.Component {
 
   _name = null;
 
-  function handleNewHighScoreFormSubmission(event) {
+  handleNewHighScoreFormSubmission(event) {
     event.preventDefault();
-    props.onNewHighScoreCreation({name: _name.value});
+    this.props.onNewHighScoreCreation({name: _name.value});
     _name.value = '';
 
   }
@@ -25,17 +25,13 @@ export default class NewHighScoreForm extends React.Component {
   render(props) {
     return (
       <View>
-
-        <FormInput>
-          <TextInput
-            id='name'
-            placeholder='Enter Your Name'
-            ref={(input) => {_name = input;}}/>
-
-          <Button color="#333333"
-            title= "ENTER"
-            onPress={handleNewHighScoreFormSubmission} />
-        </FormInput>
+        <TextInput
+          id='name'
+          placeholder='Enter Your Name'
+          ref={(input) => {_name = input;}}/>
+        <Button color="#333333"
+          title= "ENTER"
+          onPress={this.handleNewHighScoreFormSubmission} />
       </View>
     )
   }
