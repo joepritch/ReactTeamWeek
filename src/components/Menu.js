@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Button, Alert } from 'react-native';
-import background from '../../assets/birds.gif'
+import background from '../../assets/background.jpg'
 import { createAppContainer, createStackNavigator, StackActions, NavigationActions } from 'react-navigation';
 
 export default class Menu extends React.Component {
