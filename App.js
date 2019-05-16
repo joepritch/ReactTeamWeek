@@ -44,6 +44,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height:'100%',
+    width: '100%',
     color: 'white',
   },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Animated, Easing } from 'react-native';
 import Ball from './Ball';
 import Controls from './Controls';
+import Pipe from './Pipe';
 
 export default class Game extends React.Component{
 
@@ -36,10 +37,19 @@ export default class Game extends React.Component{
 
   render(){
     return(
-      <View>
+      <View style={styles.container}>
         <Ball BallPosition={this.state.BallPosition}/>
         <Controls onScreenTapped={this.handleScreenTapped}/>
+        <Pipe />
       </View>
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+  },
+});

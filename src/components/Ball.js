@@ -12,10 +12,11 @@ export default class Ball extends React.Component {
 
 const styles = StyleSheet.create({
   ball: {
-    width: 150,
-    height: 150,
+    width: 50,
+    height: 50,
     backgroundColor: 'red',
     position:'absolute',
-    borderRadius: 100
+    borderRadius: 100,
+    zIndex: 100
   },
 });
