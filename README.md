@@ -1,3 +1,4 @@
+
 ### _Flappy Bird_
 
 #### _Flappy bird App running on React Native_
@@ -33,6 +34,7 @@
          - [ ] Themes
          - [ ] Hat and Skins
          - [ ] Friends List
+
 
 
 
@@ -265,3 +267,4 @@ _React Native, Webpack, Git, Yarn, ES6, Babel_
 *This software is licensed under the MIT license.*
 
 Copyright (c) 2019 **_KH_** MIT license.
+

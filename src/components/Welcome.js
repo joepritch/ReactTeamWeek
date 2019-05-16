@@ -80,6 +80,7 @@ export default class Welcome extends React.Component {
         justifyContent: 'center',
         height: '100%',
         width: '40%'
+
       },
       button: {
         backgroundColor: 'rgba(197, 239, 247, 0.8)',
