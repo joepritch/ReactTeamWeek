@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Animated, Easing, Dimensions } from 'react-nati
 import Ball from './Ball';
 import Controls from './Controls';
 import Pipe from './Pipe';
+import Score from './Score';
 
 export default class Game extends React.Component{
 
@@ -12,6 +13,7 @@ export default class Game extends React.Component{
       BallPosition: new Animated.Value(200),
       PipePosition: new Animated.Value(400),
       bottomValue: '15%',
+      Score: 0
     }
   this.handleScreenTapped = this.handleScreenTapped.bind(this);
   this.pipeItUp = this.pipeItUp.bind(this)
@@ -24,8 +26,10 @@ export default class Game extends React.Component{
   }
 
   update(){
-    width = Dimensions.get('window').width
-    this.setState({PipePosition: new Animated.Value(width)})
+    width = Dimensions.get('window').width;
+    this.setState({PipePosition: new Animated.Value(width)});
+    this.setState({Score: this.state.Score+1});
+    console.log(this.state.Score);
   }
 
   pipeItUp() {
@@ -65,6 +69,7 @@ export default class Game extends React.Component{
   render(){
     return(
       <View style={styles.container}>
+        <Score Score={this.state.Score}/>
         <Ball BallPosition={this.state.BallPosition}/>
         <Controls onScreenTapped={this.handleScreenTapped}/>
         <Pipe pipeItUp={this.pipeItUp} PipePosition={this.state.PipePosition} bottomValue={this.state.bottomValue} />
